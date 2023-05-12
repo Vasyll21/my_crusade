@@ -28,3 +28,7 @@ InputDecoration labelInputDecoration({String? labelText}) {
     labelText: labelText,
   );
 }
+
+Widget noDataWidget({String? errorMessage}) {
+  return Container(alignment: Alignment.center, child: Text(errorMessage.validate(value: "No Data Found"), style: boldTextStyle()).center());
+}

@@ -7,7 +7,6 @@ class UserKeys {
   static String password = 'password';
   static String loginType = 'loginType';
   static String isMaster = 'isMaster';
-  static String role = 'role';
   static String oneSignalPlayerId = 'oneSignalPlayerId';
 }
 
@@ -16,4 +15,18 @@ class CommonKeys {
   static String createdAt = 'createdAt';
   static String updatedAt = 'updatedAt';
   static String isDeleted = 'isDeleted';
+}
+
+class CrusadeKeys {
+  static String crusadeName = 'crusadeName';
+  static String participantsId = 'participantsId';
+  static String masterId = 'masterId';
+}
+
+class BattleKeys {
+  static String mission = 'mission';
+  static String attackerId = 'attackerId';
+  static String defenderId = 'defenderId';
+  static String winner = 'winner';
+  static String crusadeId = 'crusadeId';
 }

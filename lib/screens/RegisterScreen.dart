@@ -8,7 +8,7 @@ import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
-//import 'DashboardScreen.dart';
+import 'DashboardScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   static String tag = '/RegisterScreen';
@@ -49,7 +49,6 @@ class RegisterScreenState extends State<RegisterScreen> {
     hideKeyboard(context);
     if (getStringAsync(PLAYER_ID).isEmpty) {
       await saveOneSignalPlayerId();
-      //if (getStringAsync(PLAYER_ID).isEmpty) return toast(errorMessage);
     }
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
@@ -58,7 +57,7 @@ class RegisterScreenState extends State<RegisterScreen> {
       await signUpWithEmail(nameController.text.trim(), emailController.text.trim(), passwordController.text.trim(), phoneController.text).then((value) {
         crusadeApp.setLoading(false);
 
-        //DashboardScreen().launch(context, isNewTask: true);
+        DashboardScreen().launch(context, isNewTask: true);
       }).catchError((e) {
         toast(e.toString());
 

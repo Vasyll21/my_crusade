@@ -10,16 +10,6 @@ class UserDBService extends BaseService {
     ref = db.collection(USERS);
   }
 
-  Stream<UserModel> userById(String? id) {
-    return ref.where(UserKeys.uid, isEqualTo: id).snapshots().map((value) {
-      if (value.docs.isNotEmpty) {
-        return UserModel.fromJson(value.docs.first.data() as Map<String, dynamic>);
-      } else {
-        throw "No User Found";
-      }
-    });
-  }
-
   Future<UserModel> getUserById(String? id) async {
     return await ref.where(UserKeys.uid, isEqualTo: id).get().then((value) {
       if (value.docs.isNotEmpty) {
@@ -32,6 +22,16 @@ class UserDBService extends BaseService {
 
   Future<List<UserModel>> usersFuture() async {
     return await ref.orderBy(CommonKeys.updatedAt, descending: true).get().then((x) => x.docs.map((y) => UserModel.fromJson(y.data() as Map<String, dynamic>)).toList());
+  }
+
+  Stream<List<UserModel>> getNotInCrusadeUsers(List<String?> usersId) {
+    return ref.where("uid", whereNotIn: usersId).snapshots()
+        .map((x) => x.docs.map((y) => UserModel.fromJson(y.data() as Map<String, dynamic>)).toList());
+  }
+
+  Stream<List<UserModel>> getInCrusadeUsers(List<String?> usersId) {
+    return ref.where("uid", whereIn: usersId).snapshots()
+        .map((x) => x.docs.map((y) => UserModel.fromJson(y.data() as Map<String, dynamic>)).toList());
   }
 
   Future<bool> isUserExist(String? email, String loginType) async {

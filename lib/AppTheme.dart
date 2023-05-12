@@ -11,6 +11,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     //primarySwatch: createMaterialColor(colorPrimary),
     tabBarTheme: TabBarTheme(labelStyle: primaryTextStyle(color: colorPrimary),labelColor: colorPrimary),
+    listTileTheme: ListTileThemeData(textColor: Colors.black),
     primaryColor: colorPrimary,
     scaffoldBackgroundColor: Colors.white,
     fontFamily: GoogleFonts.poppins().fontFamily,
@@ -41,6 +42,7 @@ class AppTheme {
     // primarySwatch: createMaterialColor(colorPrimary),
     tabBarTheme: TabBarTheme(labelStyle: primaryTextStyle(color: colorPrimary),labelColor: colorPrimary),
     primaryColor: colorPrimary,
+    listTileTheme: ListTileThemeData(textColor: Colors.white),
     scaffoldBackgroundColor: scaffoldColorDark,
     fontFamily: GoogleFonts.poppins().fontFamily,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: scaffoldSecondaryDark),

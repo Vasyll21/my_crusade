@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   nb_utils: ^5.0.8
   google_fonts: ^4.0.4
+  package_info: ^2.0.2
 
   # FIREBASE PACKAGES
   firebase_core: ^2.11.0
@@ -52,6 +53,9 @@ dependencies:
 
   # PUSH NOTIFICATION
   onesignal_flutter: ^3.5.1
+
+  # UI
+  flutter_vector_icons: 1.0.0
 
 dev_dependencies:
   flutter_test:

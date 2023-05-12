@@ -6,6 +6,7 @@ import 'package:my_crusade/utils/Constants.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 //import 'DashboardScreen.dart';
+import 'DashboardScreen.dart';
 import 'LoginScreen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class SplashScreenState extends State<SplashScreen> {
     );
 
     if (crusadeApp.isLoggedIn) {
-      //DashboardScreen().launch(context, isNewTask: true);
+      DashboardScreen().launch(context, isNewTask: true);
     } else {
       LoginScreen().launch(context, isNewTask: true);
     }

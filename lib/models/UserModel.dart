@@ -5,7 +5,6 @@ class UserModel {
   String? uid;
   String? name;
   String? email;
-  String? photoUrl;
   String? number;
   String? password;
   String? loginType;
@@ -19,7 +18,6 @@ class UserModel {
     this.uid,
     this.name,
     this.email,
-    this.photoUrl,
     this.number,
     this.password,
     this.loginType,
@@ -35,7 +33,6 @@ class UserModel {
       uid: json[UserKeys.uid],
       name: json[UserKeys.name],
       email: json[UserKeys.email],
-      photoUrl: json[UserKeys.photoUrl],
       isMaster: json[UserKeys.isMaster],
       number: json[UserKeys.number],
       password: json[UserKeys.password],
@@ -52,7 +49,6 @@ class UserModel {
     data[UserKeys.uid] = this.uid;
     data[UserKeys.name] = this.name;
     data[UserKeys.email] = this.email;
-    data[UserKeys.photoUrl] = this.photoUrl;
     data[UserKeys.loginType] = this.loginType;
     data[CommonKeys.createdAt] = this.createdAt;
     data[CommonKeys.updatedAt] = this.updatedAt;

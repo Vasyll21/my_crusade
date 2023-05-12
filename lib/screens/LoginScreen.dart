@@ -9,7 +9,7 @@ import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
-//import 'DashboardScreen.dart';
+import 'DashboardScreen.dart';
 import 'RegisterScreen.dart';
 
 
@@ -42,14 +42,13 @@ class LoginScreenState extends State<LoginScreen> {
   Future<void> loginWithEmail() async {
     if (isMobile && getStringAsync(PLAYER_ID).isEmpty) {
       await saveOneSignalPlayerId();
-      //if (getStringAsync(PLAYER_ID).isEmpty) return toast(errorMessage);
     }
     hideKeyboard(context);
     if (formKey.currentState!.validate()) {
       crusadeApp.setLoading(true);
 
       await signInWithEmail(email: emailController.text, password: passwordController.text).then((value) {
-        //DashboardScreen().launch(context, isNewTask: true);
+        DashboardScreen().launch(context, isNewTask: true);
       }).catchError((e) {
         toast(e.toString());
       });

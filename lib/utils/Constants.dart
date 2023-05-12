@@ -1,4 +1,5 @@
 const mAppName = 'My Crusade';
+const mAboutApp = 'this program was developed as a thesis of the student Vasyl Kyrychenko';
 
 const mOneSignalAppId = 'ed874afc-6664-4ded-952e-79629817c026';
 
@@ -15,8 +16,6 @@ const LoginTypeApple = 'apple';
 
 /*User role*/
 const USER_ROLE = 'User';
-
-/// Payment Status
 
 const AppId = 'RTfgH4fQKdy2JwrrgwD4';
 
@@ -39,6 +38,8 @@ const PHONE_NUMBER = 'Phone Number';
 
 /*Collection*/
 const USERS = 'users';
+const CRUSADES = 'crusades';
+const BATTLES = 'battles';
 
 const DocLimit = 10;
 

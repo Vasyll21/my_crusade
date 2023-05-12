@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:my_crusade/services/BattleDBService.dart';
+import 'package:my_crusade/services/CrusadeDBService.dart';
 import 'package:my_crusade/services/UserDBService.dart';
 import 'package:my_crusade/engine/CrusadeApp.dart';
 import 'package:my_crusade/utils/Colors.dart';
@@ -19,6 +21,8 @@ FirebaseFirestore db = FirebaseFirestore.instance;
 FirebaseAuth auth = FirebaseAuth.instance;
 
 UserDBService userDBService = UserDBService();
+CrusadeDBService crusadeDBService = CrusadeDBService();
+BattleDBService battleDBService = BattleDBService();
 
 CrusadeApp crusadeApp = CrusadeApp();
 

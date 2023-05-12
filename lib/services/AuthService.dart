@@ -29,7 +29,6 @@ Future<void> signUpWithEmail(String name, String email, String password, String 
     userModel.password = password.validate();
     userModel.name = name.validate();
     userModel.number = phone.validate();
-    userModel.photoUrl = currentUser.photoURL.validate();
     userModel.loginType = LoginTypeApp;
     userModel.updatedAt = DateTime.now();
     userModel.createdAt = DateTime.now();

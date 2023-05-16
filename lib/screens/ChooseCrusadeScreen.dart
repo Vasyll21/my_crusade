@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:my_crusade/components/CrusadeItemComponent.dart';
+import 'package:my_crusade/components/ChooseCrusadeItemComponent.dart';
 import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/screens/ChooseArmyNameScreen.dart';
@@ -58,7 +58,7 @@ class ChooseCrusadeScreenState extends State<ChooseCrusadeScreen> {
                               } else {
                                 return ListView.builder(
                                   itemBuilder: (context, index) {
-                                    return CrusadeItemComponent(crusade: snapshot.data![index]).onTap(() => {
+                                    return ChooseCrusadeItemComponent(crusade: snapshot.data![index]).onTap(() => {
                                       ChooseArmyNameScreen(fraction: widget.fraction.validate(), crusadeData: snapshot.data![index]).launch(context)
                                     });
                                   },

@@ -61,7 +61,7 @@ class RelicsScreenState extends State<RelicsScreen> {
                               return ListView.builder(
                                 itemBuilder: (context, index) {
                                   return RequisitionItemComponent(reqName: snapshot.data![index].relicName.validate(),reqDesc: snapshot.data![index].relicDesc.validate()).onTap(() async {
-                                    ArmyUnitModel unit = await armyUnitsDBService.getArmyUnitById(widget.army!.id.validate());
+                                    ArmyUnitModel unit = await armyUnitsDBService.getArmyUnitById(snapshot.data![index].unitId);
 
                                     RelicScreen(model: unit!, relic: snapshot.data![index]).launch(context);
                                   });

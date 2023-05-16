@@ -31,7 +31,7 @@ class ArmyUnitsDBService extends BaseService {
       if (value.docs.isNotEmpty) {
         return ArmyUnitModel.fromJson(value.docs.first.data() as Map<String, dynamic>);
       } else {
-        throw "No User Found";
+        throw "No Army Unit Found";
       }
     });
   }

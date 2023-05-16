@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_crusade/components/UnitItemComponent.dart';
+import 'package:my_crusade/components/ChooseUnitItemComponent.dart';
 import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/ArmyUnitModel.dart';
+import 'package:my_crusade/models/UnitModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -41,8 +42,8 @@ class AddUnitScreenState extends State<AddUnitScreen> {
       child: Scaffold(
         backgroundColor: crusadeApp.isDarkMode ? scaffoldColorDark : Colors.white,
         appBar: appBarWidget('Add Unit: ${widget.role.validate()}', color: context.cardColor),
-        body: StreamBuilder<List<ArmyUnitModel>>(
-            stream: armyUnitsDBService.characterUnitsInArmy(widget.army!.id!, true),
+        body: StreamBuilder<List<UnitModel>>(
+            stream: unitDBService.unitsInByRoleAndFraction(widget.army!.fraction.validate(), widget.role.validate()),
             builder: (context, snapshot) {
               if (snapshot.hasError) return Text(snapshot.error.toString()).center();
               if (snapshot.hasData) {
@@ -51,7 +52,7 @@ class AddUnitScreenState extends State<AddUnitScreen> {
                 } else {
                   return ListView.builder(
                     itemBuilder: (context, index) {
-                      return UnitItemComponent(unit: snapshot.data![index]).visible(widget.army!.currentPoints! + snapshot.data![index].pointCost! <= widget.army!.maxPoints!)
+                      return ChooseUnitItemComponent(unit: snapshot.data![index]).visible(widget.army!.currentPoints! + snapshot.data![index].pointCost! <= widget.army!.maxPoints!)
                           .onTap(() {
                             ArmyUnitModel armyUnitModel = ArmyUnitModel();
                             armyUnitModel.fraction = widget.army!.fraction;
@@ -62,6 +63,13 @@ class AddUnitScreenState extends State<AddUnitScreen> {
                             armyUnitModel.isCharacter = snapshot.data![index].isCharacter;
 
                             armyUnitsDBService.addDocument(armyUnitModel.toJson());
+
+                            ArmyModel army = widget.army!;
+
+                            army.currentPoints = armyUnitModel.pointCost! + army.currentPoints!;
+
+                            armyDBService.updateDocument(army.toJson(), army.id.validate());
+
                             finish(context);
                       });
                     },

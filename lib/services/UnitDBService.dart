@@ -11,7 +11,7 @@ class UnitDBService extends BaseService {
     ref = db.collection(UNITS);
   }
 
-  Stream<List<UnitModel>> unitsInByRoleAndFraction(String? fraction, String? role) {
+  Stream<List<UnitModel>> unitsInByRoleAndFraction(String fraction, String role) {
     return ref
         .where(ArmyUnitsKeys.fraction, isEqualTo: fraction)
         .where(ArmyUnitsKeys.role, isEqualTo: role)

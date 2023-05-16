@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_crusade/main.dart';
+import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
+import 'package:my_crusade/screens/ArmyScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:my_crusade/utils/Common.dart';
 import 'package:my_crusade/utils/ModalKeys.dart';
@@ -47,11 +49,13 @@ class ChooseArmyNameScreenState extends State<ChooseArmyNameScreen> {
       };
 
       await armyDBService.addDocument(data).then((value) async{
-        finish(context);
       }).catchError((e) {
         toast(e.toString());
         log(e.toString());
       });
+
+      ArmyModel army = await armyDBService.getUserArmyInCrusade(crusadeApp.userId, widget.crusadeData!.id);
+      ArmyScreen(crusadeData: widget.crusadeData!, armyData: army).launch(context);
     }
 
     crusadeApp.setLoading(false);

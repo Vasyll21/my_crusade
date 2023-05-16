@@ -69,6 +69,8 @@ class ChooseRelicScreenState extends State<ChooseRelicScreen> {
                         relic.relicName = "Master-crafted Armour";
 
                         relicDBService.addDocument(relic.toJson());
+
+
                         ArmyScreen(armyData: widget.army!, crusadeData: widget.crusade!).launch(context);
                       }),
                       RequisitionItemComponent(reqDesc: "Add 2 CP at the start of battle, if this model destroyed reduce your CP by 2",reqName: "Laurels of Victory").onTap(() {

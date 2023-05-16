@@ -40,6 +40,10 @@ const PHONE_NUMBER = 'Phone Number';
 const USERS = 'users';
 const CRUSADES = 'crusades';
 const BATTLES = 'battles';
+const ARMIES = 'armies';
+const ARMYUNITS = 'armyUnits';
+const UNITS = 'units';
+const RELICS = 'relics';
 
 const DocLimit = 10;
 

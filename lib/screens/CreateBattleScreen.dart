@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_crusade/components/MissionItemComponent.dart';
 import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
-import 'package:my_crusade/screens/ChooseAttackerScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 

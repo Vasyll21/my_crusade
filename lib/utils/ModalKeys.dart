@@ -30,3 +30,29 @@ class BattleKeys {
   static String winner = 'winner';
   static String crusadeId = 'crusadeId';
 }
+
+class ArmyKeys {
+  static String armyName = 'armyName';
+  static String userId = 'userId';
+  static String crusadeId = 'crusadeId';
+  static String fraction = 'fraction';
+  static String maxPoints = 'maxPoints';
+  static String currentPoints = 'currentPoints';
+  static String reqPoints = 'reqPoints';
+}
+
+class ArmyUnitsKeys {
+  static String unitName = 'unitName';
+  static String armyId = 'armyId';
+  static String role = 'role';
+  static String fraction = 'fraction';
+  static String pointCost = 'pointCost';
+  static String isCharacter = 'isCharacter';
+}
+
+class RelicKeys {
+  static String unitId = 'unitId';
+  static String armyId = 'armyId';
+  static String relicName = 'relicName';
+  static String relicDesc = 'relicDesc';
+}

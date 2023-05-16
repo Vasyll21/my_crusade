@@ -92,8 +92,8 @@ class ChooseDefenderScreenState extends State<ChooseDefenderScreen> {
                               } else {
                                 return ListView.builder(
                                   itemBuilder: (context, index) {
-                                    return UserItemComponent(user: snapshot.data![index]).onTap(() => {
-                                      createBattle(snapshot.data![index])
+                                    return UserItemComponent(user: snapshot.data![index]).onTap(() async =>  {
+                                      await createBattle(snapshot.data![index])
                                     });
                                   },
                                   padding: EdgeInsets.all(8),

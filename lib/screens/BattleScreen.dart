@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'package:my_crusade/components/CrusadeMenuTopWidget.dart';
 import 'package:my_crusade/models/BattleModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
-import 'package:my_crusade/utils/Constants.dart';
 import 'package:nb_utils/nb_utils.dart';
-import '../components/ArmyTabComponent.dart';
-import '../components/CrusadeMenuTabWidget.dart';
 import '../main.dart';
 import 'BattlesScreen.dart';
 
@@ -88,7 +84,7 @@ class BattleScreenState extends State<BattleScreen> {
                         widget.battle!.winner = widget.battle!.defenderId;
                       }
                       await battleDBService.updateDocument(widget.battle!.toJson(), widget.battle!.id);
-                      BattlesScreen(crusadeId: widget.battle!.crusadeId);
+                      BattlesScreen(crusadeId: widget.battle!.crusadeId).launch(context);
                     },
                   ).visible(crusadeApp.isMaster || crusadeApp.userId == widget.battle!.attackerId ||
                       crusadeApp.userId == widget.battle!.defenderId),

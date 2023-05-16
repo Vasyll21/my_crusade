@@ -69,6 +69,7 @@ class BattlesScreenState extends State<BattlesScreen> {
               IconButton(
                 icon: Icon(Icons.add),
                 onPressed: () => CreateBattleScreen().launch(context),
+                color: crusadeApp.isDarkMode ? scaffoldSecondaryDark : Colors.white
               ).visible(crusadeApp.isMaster),
             ]
         ),

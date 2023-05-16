@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/UserModel.dart';
 import 'package:my_crusade/utils/Constants.dart';

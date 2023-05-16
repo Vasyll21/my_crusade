@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:my_crusade/main.dart';
-import 'package:my_crusade/models/BattleModel.dart';
+import 'package:my_crusade/models/ArmyModel.dart';
+import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/models/UserModel.dart';
-import 'package:my_crusade/screens/BattleScreen.dart';
+import 'package:my_crusade/screens/ArmyScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class BattleItemComponent extends StatefulWidget {
-  final BattleModel? battle;
+class ArmyItemComponent extends StatefulWidget {
+  final ArmyModel? army;
 
-  BattleItemComponent({this.battle});
+  ArmyItemComponent({this.army});
 
   @override
-  BattleItemComponentState createState() => BattleItemComponentState();
+  ArmyItemComponentState createState() => ArmyItemComponentState();
 }
 
-class BattleItemComponentState extends State<BattleItemComponent> {
-  String? attackerName;
-  String? defenderName;
+class ArmyItemComponentState extends State<ArmyItemComponent> {
+  UserModel? user;
+  CrusadeModel? crusade;
 
   @override
   void initState() {
@@ -26,11 +27,8 @@ class BattleItemComponentState extends State<BattleItemComponent> {
   }
 
   Future<void> init() async {
-    UserModel attacker = await userDBService.getUserById(widget.battle!.attackerId);
-    attackerName = attacker.name;
-    UserModel defender = await userDBService.getUserById(widget.battle!.defenderId);
-    defenderName = defender.name;
-    await 10.microseconds.delay;
+    await 2.microseconds.delay;
+    crusade = await crusadeDBService.getCrusadeById(widget.army!.crusadeId);
   }
 
   @override
@@ -55,8 +53,8 @@ class BattleItemComponentState extends State<BattleItemComponent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                title: Text(widget.battle!.mission.validate()),
-                subtitle: Text('members: ${attackerName.validate()} and ${defenderName.validate()}'),
+                title: Text(widget.army!.armyName.validate()),
+                subtitle: Text('fraction: ${widget.army!.fraction.validate()}'),
               ),
             ],
           ).paddingAll(8),
@@ -64,7 +62,7 @@ class BattleItemComponentState extends State<BattleItemComponent> {
       ),
     ).onTap(() {
       hideKeyboard(context);
-      BattleScreen(battle: widget.battle!, attacker: attackerName, defender: defenderName).launch(context);
+      ArmyScreen(crusadeData:crusade, armyData: widget.army).launch(context);
     }, highlightColor: crusadeApp.isDarkMode ? scaffoldColorDark : context.cardColor);
   }
 }

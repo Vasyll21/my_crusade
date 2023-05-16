@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:my_crusade/components/CrusadeMenuTopWidget.dart';
+import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -9,7 +7,6 @@ import '../components/ArmyTabComponent.dart';
 import '../components/CrusadeMenuTabWidget.dart';
 import '../main.dart';
 
-// ignore: must_be_immutable
 class CrusadeMenuScreen extends StatefulWidget {
   static String tag = '/CrusadeMenuScreen';
 

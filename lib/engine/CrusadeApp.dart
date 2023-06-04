@@ -84,8 +84,9 @@ abstract class _CrusadeApp with Store {
   }
 
   @action
-  void setMaster(bool val) {
+  void setMaster(bool val) async {
     isMaster = val;
+    await setValue(MASTER, val);
   }
 
   Future<void> setDarkMode(bool aIsDarkMode) async {

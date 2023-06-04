@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_crusade/main.dart';
-import 'package:my_crusade/models/UserModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:my_crusade/utils/Common.dart';
 import 'package:my_crusade/utils/ModalKeys.dart';

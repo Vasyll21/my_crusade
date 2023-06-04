@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:my_crusade/main.dart';
 import 'package:my_crusade/utils/Colors.dart';

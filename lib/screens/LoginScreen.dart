@@ -12,7 +12,6 @@ import '../main.dart';
 import 'DashboardScreen.dart';
 import 'RegisterScreen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   static String tag = '/LoginScreen';
 

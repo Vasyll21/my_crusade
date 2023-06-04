@@ -5,7 +5,6 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/screens/ArmyUnitsScreen.dart';
-import 'package:my_crusade/screens/CreateArmyScreen.dart';
 import 'package:my_crusade/screens/CrusadeMenuScreen.dart';
 import 'package:my_crusade/screens/RelicsScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';

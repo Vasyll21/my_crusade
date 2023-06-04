@@ -34,14 +34,6 @@ RelicDBService relicDBService = RelicDBService();
 
 CrusadeApp crusadeApp = CrusadeApp();
 
-String? restaurantName = '';
-String? restaurantId = '';
-
-List<String?> favRestaurantList = [];
-
-String userAddressGlobal = '';
-String? userCityNameGlobal = '';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

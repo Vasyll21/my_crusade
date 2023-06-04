@@ -4,6 +4,7 @@ import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/ArmyUnitModel.dart';
 import 'package:my_crusade/screens/AddUnitScreen.dart';
+import 'package:my_crusade/screens/UnitScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -70,8 +71,9 @@ class RoleUnitsScreenState extends State<RoleUnitsScreen> {
             actions: [
               IconButton(
                 icon: Icon(Icons.add),
-                onPressed: () => AddUnitScreen(role: widget.role.validate(), army: widget.army!).launch(context),
-              ).visible(crusadeApp.isMaster),
+                color: crusadeApp.isDarkMode ? scaffoldSecondaryDark : Colors.white,
+                onPressed: () => AddUnitScreen(role: widget.role.validate(), army: widget.army!).launch(context)
+              ),
             ]
         ),
         body: StreamBuilder<List<ArmyUnitModel>>(
@@ -84,7 +86,10 @@ class RoleUnitsScreenState extends State<RoleUnitsScreen> {
                 } else {
                   return ListView.builder(
                     itemBuilder: (context, index) {
-                      return UnitItemComponent(unit: snapshot.data![index]);
+                      return UnitItemComponent(unit: snapshot.data![index]).onTap(() =>
+                      {
+                        UnitScreen(model: snapshot.data![index]).launch(context)
+                      });
                     },
                     padding: EdgeInsets.all(8),
                     itemCount: snapshot.data!.length,

@@ -44,7 +44,9 @@ class RequisitionsScreenState extends State<RequisitionsScreen> {
           army.maxPoints = max + 5;
         }
 
-        armyDBService.updateDocument(army.toJson(), army.id);
+        army.reqPoints = army.reqPoints! - 1;
+
+        await armyDBService.updateDocument(army.toJson(), army.id);
 
         crusadeApp.setLoading(false);
         finish(context);
@@ -88,7 +90,7 @@ class RequisitionsScreenState extends State<RequisitionsScreen> {
                     RequisitionItemComponent(
                       reqName: "Relic",
                       reqDesc: "Add relic to your character",
-                    ).onTap(() {
+                    ).onTap(() async{
                       if(widget.armyData!.reqPoints! >= 1){
                         AddRelicScreen(army: widget.armyData, crusadeModel: widget.crusadeData!).launch(context);
                       }else {

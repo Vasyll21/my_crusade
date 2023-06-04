@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
-
 InputDecoration inputDecoration({String? labelText}) {
   return InputDecoration(
     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey), borderRadius: radius() as BorderRadius),

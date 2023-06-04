@@ -5,11 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class AppTheme {
-  //
   AppTheme._();
 
   static final ThemeData lightTheme = ThemeData(
-    //primarySwatch: createMaterialColor(colorPrimary),
     tabBarTheme: TabBarTheme(labelStyle: primaryTextStyle(color: colorPrimary),labelColor: colorPrimary),
     listTileTheme: ListTileThemeData(textColor: Colors.black),
     primaryColor: colorPrimary,
@@ -39,7 +37,6 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    // primarySwatch: createMaterialColor(colorPrimary),
     tabBarTheme: TabBarTheme(labelStyle: primaryTextStyle(color: colorPrimary),labelColor: colorPrimary),
     primaryColor: colorPrimary,
     listTileTheme: ListTileThemeData(textColor: Colors.white),

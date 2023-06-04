@@ -3,8 +3,6 @@ const mAboutApp = 'this program was developed as a thesis of the student Vasyl K
 
 const mOneSignalAppId = 'ed874afc-6664-4ded-952e-79629817c026';
 
-//region URLs & Keys
-
 /* Theme Mode Type */
 const ThemeModeLight = 0;
 const ThemeModeDark = 1;

@@ -16,6 +16,4 @@ class RelicDBService extends BaseService {
         .snapshots()
         .map((x) => x.docs.map((y) => RelicModel.fromJson(y.data() as Map<String, dynamic>)).toList());
   }
-
-
 }

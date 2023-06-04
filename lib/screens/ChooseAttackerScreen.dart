@@ -6,7 +6,6 @@ import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/models/UserModel.dart';
 import 'package:my_crusade/screens/ChooseDefenderScreen.dart';
 import 'package:my_crusade/utils/Colors.dart';
-import 'package:my_crusade/utils/ModalKeys.dart';
 import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
 

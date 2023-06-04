@@ -12,7 +12,7 @@ import 'package:nb_utils/nb_utils.dart';
 import 'CrusadeMenuScreen.dart';
 
 class ChooseDefenderScreen extends StatefulWidget {
-  static String tag = '/ChooseAttackerScreen';
+  static String tag = '/ChooseDefenderScreen';
 
   String? mission;
   CrusadeModel? crusadeData;
@@ -43,7 +43,8 @@ class ChooseDefenderScreenState extends State<ChooseDefenderScreen> {
         BattleKeys.attackerId: widget.attacker!.uid,
         BattleKeys.defenderId: defender!.uid,
         BattleKeys.winner: null,
-        BattleKeys.crusadeId: widget.crusadeData!.id
+        BattleKeys.crusadeId: widget.crusadeData!.id,
+        BattleKeys.hasWinner: false
       };
 
       await battleDBService.addDocument(data).then((value) async{

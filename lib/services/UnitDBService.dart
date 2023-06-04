@@ -1,4 +1,3 @@
-import 'package:my_crusade/models/ArmyUnitModel.dart';
 import 'package:my_crusade/models/UnitModel.dart';
 import 'package:my_crusade/services/BaseService.dart';
 import 'package:my_crusade/utils/Constants.dart';
@@ -18,6 +17,4 @@ class UnitDBService extends BaseService {
         .snapshots()
         .map((x) => x.docs.map((y) => UnitModel.fromJson(y.data() as Map<String, dynamic>)).toList());
   }
-
-
 }

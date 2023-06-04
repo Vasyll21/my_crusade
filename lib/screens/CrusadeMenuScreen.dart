@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_crusade/models/ArmyModel.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';

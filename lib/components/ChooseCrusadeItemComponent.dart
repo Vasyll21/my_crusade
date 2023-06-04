@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_crusade/main.dart';
 import 'package:my_crusade/models/CrusadeModel.dart';
-import 'package:my_crusade/screens/CrusadeMenuScreen.dart';
-import 'package:my_crusade/utils/Colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ChooseCrusadeItemComponent extends StatefulWidget {

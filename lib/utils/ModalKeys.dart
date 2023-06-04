@@ -29,6 +29,7 @@ class BattleKeys {
   static String defenderId = 'defenderId';
   static String winner = 'winner';
   static String crusadeId = 'crusadeId';
+  static String hasWinner = 'hasWinner';
 }
 
 class ArmyKeys {

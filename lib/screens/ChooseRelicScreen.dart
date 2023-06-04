@@ -60,7 +60,7 @@ class ChooseRelicScreenState extends State<ChooseRelicScreen> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      RequisitionItemComponent(reqDesc: "Add 1 to Save, on mortal wound roll D6, on 6 ignore this wound",reqName: "Master-crafted Armour").onTap(() {
+                      RequisitionItemComponent(reqDesc: "Add 1 to Save, on mortal wound roll D6, on 6 ignore this wound",reqName: "Master-crafted Armour").onTap(() async {
                         RelicModel relic = RelicModel();
 
                         relic.armyId = widget.army!.id!;
@@ -68,12 +68,14 @@ class ChooseRelicScreenState extends State<ChooseRelicScreen> {
                         relic.relicDesc = "Add 1 to Save, on mortal wound roll D6, on 6 ignore this wound";
                         relic.relicName = "Master-crafted Armour";
 
-                        relicDBService.addDocument(relic.toJson());
+                        await relicDBService.addDocument(relic.toJson());
 
+                        widget.army!.reqPoints = widget.army!.reqPoints! - 1;
+                        await armyDBService.updateDocument(widget.army!.toJson(), widget.army!.id);
 
                         ArmyScreen(armyData: widget.army!, crusadeData: widget.crusade!).launch(context);
                       }),
-                      RequisitionItemComponent(reqDesc: "Add 2 CP at the start of battle, if this model destroyed reduce your CP by 2",reqName: "Laurels of Victory").onTap(() {
+                      RequisitionItemComponent(reqDesc: "Add 2 CP at the start of battle, if this model destroyed reduce your CP by 2",reqName: "Laurels of Victory").onTap(() async {
                         RelicModel relic = RelicModel();
 
                         relic.armyId = widget.army!.id!;
@@ -81,7 +83,11 @@ class ChooseRelicScreenState extends State<ChooseRelicScreen> {
                         relic.relicDesc = "Add 2 CP at the start of battle, if this model destroyed reduce your CP by 2";
                         relic.relicName = "Laurels of Victory";
 
-                        relicDBService.addDocument(relic.toJson());
+                        await relicDBService.addDocument(relic.toJson());
+
+                        widget.army!.reqPoints = widget.army!.reqPoints! - 1;
+                        await armyDBService.updateDocument(widget.army!.toJson(), widget.army!.id);
+
                         ArmyScreen(armyData: widget.army!, crusadeData: widget.crusade!).launch(context);
                       })
                     ]

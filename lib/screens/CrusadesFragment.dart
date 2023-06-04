@@ -78,7 +78,7 @@ class CrusadesFragmentState extends State<CrusadesFragment> {
         floatingActionButton: FloatingActionButton(
           onPressed: () => CreateCrusadeScreen().launch(context),
           child: const Icon(Icons.add),
-        ),
+        ).visible(crusadeApp.isMaster),
       ),
     );
   }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:my_crusade/models/BattleModel.dart';
+import 'package:my_crusade/models/UserModel.dart';
 import 'package:my_crusade/utils/Colors.dart';
+import 'package:my_crusade/utils/Widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../main.dart';
 import 'BattlesScreen.dart';
@@ -83,11 +85,29 @@ class BattleScreenState extends State<BattleScreen> {
                       }else {
                         widget.battle!.winner = widget.battle!.defenderId;
                       }
+                      widget.battle!.hasWinner = true;
+
                       await battleDBService.updateDocument(widget.battle!.toJson(), widget.battle!.id);
                       BattlesScreen(crusadeId: widget.battle!.crusadeId).launch(context);
                     },
-                  ).visible(crusadeApp.isMaster || crusadeApp.userId == widget.battle!.attackerId ||
-                      crusadeApp.userId == widget.battle!.defenderId),
+                  ).visible((crusadeApp.isMaster || crusadeApp.userFullName == widget.battle!.attackerId ||
+                      crusadeApp.userFullName == widget.battle!.defenderId) && widget.battle!.hasWinner == false),
+                  FutureBuilder<UserModel>(
+                      future: userDBService.getUserById(widget.battle!.winner),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) return Text(snapshot.error.toString()).center();
+                        if (snapshot.hasData) {
+                          if (snapshot.data! == null) {
+                            return noDataWidget(errorMessage: "No Data");
+                          } else {
+                            return SettingItemWidget(
+                                title: 'Winner: ${snapshot.data!.name.validate()}',
+                                leading: Icon(LineIcons.crown)
+                            );
+                          }
+                        }
+                        return Loader().center();
+                      }).visible(widget.battle!.winner != null),
                 ]
             ),
           )

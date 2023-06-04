@@ -7,6 +7,7 @@ class BattleModel {
   String? winner;
   String? crusadeId;
   String? id;
+  bool? hasWinner;
 
   BattleModel({
     this.mission,
@@ -14,7 +15,8 @@ class BattleModel {
     this.defenderId,
     this.winner,
     this.crusadeId,
-    this.id
+    this.id,
+    this.hasWinner
   });
 
   factory BattleModel.fromJson(Map<String, dynamic> json) {
@@ -24,7 +26,8 @@ class BattleModel {
       defenderId: json[BattleKeys.defenderId],
       winner: json[BattleKeys.winner],
       crusadeId: json[BattleKeys.crusadeId],
-      id: json[CommonKeys.id]
+      id: json[CommonKeys.id],
+      hasWinner: json[BattleKeys.hasWinner]
     );
   }
 
@@ -36,6 +39,7 @@ class BattleModel {
     data[BattleKeys.winner] = this.winner;
     data[BattleKeys.crusadeId] = this.crusadeId;
     data[CommonKeys.id] = this.id;
+    data[BattleKeys.hasWinner] = this.hasWinner;
 
     return data;
   }

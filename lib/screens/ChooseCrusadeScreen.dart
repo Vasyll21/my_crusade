@@ -49,65 +49,29 @@ class ChooseCrusadeScreenState extends State<ChooseCrusadeScreen> {
               child: SingleChildScrollView(
                 child: Column(
                     children: [
-                      StreamBuilder<List<ArmyModel>>(
-                        stream: armyDBService.armiesByUser(crusadeApp.userId),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasError) return Text(snapshot.error
-                              .toString()).center();
-                          if (snapshot.hasData) {
-                            if (snapshot.data!.isEmpty) {
-                              return StreamBuilder<List<CrusadeModel>>(
-                                  stream: crusadeDBService.crusadesByUser(crusadeApp.userId),
-                                  builder: (context, snapshotCrusades) {
-                                    if (snapshotCrusades.hasError) return Text(snapshotCrusades.error.toString()).center();
-                                    if (snapshotCrusades.hasData) {
-                                      if (snapshotCrusades.data!.isEmpty) {
-                                        return noDataWidget(errorMessage: "No Crusades");
-                                      } else {
-                                        return ListView.builder(
-                                          itemBuilder: (context, index) {
-                                            return ChooseCrusadeItemComponent(crusade: snapshotCrusades.data![index]).onTap(() => {
-                                              ChooseArmyNameScreen(fraction: widget.fraction.validate(), crusadeData: snapshotCrusades.data![index]).launch(context)
-                                            });
-                                          },
-                                          padding: EdgeInsets.all(8),
-                                          itemCount: snapshotCrusades.data!.length,
-                                          physics: ClampingScrollPhysics(),
-                                          shrinkWrap: true,
-                                        );
-                                      }
-                                    }
-                                    return Loader().center();
-                                  });
+                      StreamBuilder<List<CrusadeModel>>(
+                        stream: crusadeDBService.crusadesByUser(crusadeApp.userId),
+                        builder: (context, snapshotCrusades) {
+                          if (snapshotCrusades.hasError) return Text(snapshotCrusades.error.toString()).center();
+                          if (snapshotCrusades.hasData) {
+                            if (snapshotCrusades.data!.isEmpty) {
+                              return noDataWidget(errorMessage: "No Crusades");
                             } else {
-                              return StreamBuilder<List<CrusadeModel>>(
-                                  stream: crusadeDBService.crusadesWithoutArmy(snapshot.data!,crusadeApp.userId),
-                                  builder: (context, snapshotArmiesCrusade) {
-                                    if (snapshotArmiesCrusade.hasError) return Text(snapshotArmiesCrusade.error.toString()).center();
-                                    if (snapshotArmiesCrusade.hasData) {
-                                      if (snapshotArmiesCrusade.data!.isEmpty) {
-                                        return noDataWidget(errorMessage: "No Crusades");
-                                      } else {
-                                        return ListView.builder(
-                                          itemBuilder: (context, index) {
-                                            return ChooseCrusadeItemComponent(crusade: snapshotArmiesCrusade.data![index]).onTap(() => {
-                                              ChooseArmyNameScreen(fraction: widget.fraction.validate(), crusadeData: snapshotArmiesCrusade.data![index]).launch(context)
-                                            });
-                                          },
-                                          padding: EdgeInsets.all(8),
-                                          itemCount: snapshotArmiesCrusade.data!.length,
-                                          physics: ClampingScrollPhysics(),
-                                          shrinkWrap: true,
-                                        );
-                                      }
-                                    }
-                                    return Loader().center();
+                              return ListView.builder(
+                                itemBuilder: (context, index1) {
+                                  return ChooseCrusadeItemComponent(crusade: snapshotCrusades.data![index1]).onTap(() => {
+                                    ChooseArmyNameScreen(fraction: widget.fraction.validate(), crusadeData: snapshotCrusades.data![index1]).launch(context)
                                   });
+                                  },
+                                padding: EdgeInsets.all(8),
+                                itemCount: snapshotCrusades.data!.length,
+                                physics: ClampingScrollPhysics(),
+                                shrinkWrap: true,
+                              );
                             }
                           }
                           return Loader().center();
-                        }
-                      )
+                        })
                     ],
                   ),
                 ),

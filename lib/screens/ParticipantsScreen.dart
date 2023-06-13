@@ -71,7 +71,7 @@ class ParticipantsScreenState extends State<ParticipantsScreen> {
               IconButton(
                 icon: Icon(Icons.add),
                 onPressed: () => AddUserScreen(crusadeData: widget.crusadeData).launch(context),
-              ).visible(crusadeApp.isMaster),
+              ).visible(crusadeApp.userId == widget.crusadeData!.masterId),
             ]
         ),
         body: StreamBuilder<List<UserModel>>(

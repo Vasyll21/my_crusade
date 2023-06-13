@@ -54,7 +54,7 @@ class UnitScreenState extends State<UnitScreen> {
                       await armyUnitsDBService.removeDocument(widget.model!.id);
                       finish(context);
                     },
-                    color: crusadeApp.isDarkMode ? scaffoldSecondaryDark : Colors.white,
+                    color: crusadeApp.isDarkMode ? Colors.white : scaffoldSecondaryDark,
                     icon: Icon(Icons.delete))
               ]
           ),

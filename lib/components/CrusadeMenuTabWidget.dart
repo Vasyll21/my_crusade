@@ -63,7 +63,7 @@ class CrusadeMenuTabWidgetState extends State<CrusadeMenuTabWidget> {
           onTap: () {
             AddUserScreen(crusadeData: widget.crusadeData).launch(context);
           },
-        ).visible(crusadeApp.isMaster),
+        ).visible(crusadeApp.userId == widget.crusadeData!.masterId),
         Divider(height: 0),
         SettingItemWidget(
           leading: Icon(Icons.add_box_outlined),
@@ -71,7 +71,7 @@ class CrusadeMenuTabWidgetState extends State<CrusadeMenuTabWidget> {
           onTap: () {
             CreateBattleScreen(crusadeData: widget.crusadeData!).launch(context);
           },
-        ).visible(crusadeApp.isMaster),
+        ).visible(crusadeApp.userId == widget.crusadeData!.masterId),
       ],
     );
   }

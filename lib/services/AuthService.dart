@@ -72,6 +72,7 @@ Future<void> saveUserDetails(UserModel userModel, String loginType) async {
   await crusadeApp.setFullName(userModel.name);
   await crusadeApp.setUserEmail(userModel.email);
   await crusadeApp.setPhoneNumber(userModel.number);
+  crusadeApp.setMaster(userModel.isMaster!);
 
   /// Update user data
   userDBService.updateDocument({
@@ -96,4 +97,5 @@ Future<void> logout() async {
   crusadeApp.setUserId('');
   crusadeApp.setFullName('');
   crusadeApp.setUserEmail('');
+  crusadeApp.setMaster(false);
 }

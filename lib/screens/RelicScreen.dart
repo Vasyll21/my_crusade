@@ -56,7 +56,7 @@ class RelicScreenState extends State<RelicScreen> {
                     await relicDBService.removeDocument(widget.relic!.id);
                     finish(context);
                   },
-                  color: crusadeApp.isDarkMode ? scaffoldSecondaryDark : Colors.white,
+                  color: crusadeApp.isDarkMode ? Colors.white : scaffoldSecondaryDark,
                   icon: Icon(Icons.delete)),
             ]
           ),

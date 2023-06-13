@@ -71,7 +71,7 @@ class RoleUnitsScreenState extends State<RoleUnitsScreen> {
             actions: [
               IconButton(
                 icon: Icon(Icons.add),
-                color: crusadeApp.isDarkMode ? scaffoldSecondaryDark : Colors.white,
+                color: crusadeApp.isDarkMode ? Colors.white : scaffoldSecondaryDark,
                 onPressed: () => AddUnitScreen(role: widget.role.validate(), army: widget.army!).launch(context)
               ),
             ]
